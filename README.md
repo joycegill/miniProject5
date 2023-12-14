@@ -7,5 +7,6 @@ This is a program that models a simple symbol based AAC device that has two leve
 ## Acknowledgements
 Professor Samuel Rebelsky and his readings, labs, starter code for Mini Project 4, and hints for methods
 Starter code provided in the directions for Mini Project 5
-I attended Micah Cantor's mentor session and received help on getImages() from him and helped others that attended
+I attended Micah Cantor's mentor session and received help on getImages() from him and Jayson Kunkel
+I also helped others that attended the mentor session
 

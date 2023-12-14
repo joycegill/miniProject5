@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.lang.*;
-import java.util.*;
 
 /*
  * Keeps track of the complete set of AAC mappings
@@ -24,7 +22,7 @@ public class AACMappings
   /* Constructor */
   public AACMappings (String filename) {
     arr = new AssociativeArray<String, AACCategory>();
-    this.topLevel = new AACCategory (""); // Default
+    this.topLevel = new AACCategory (""); 
     this.current = topLevel;
 
     try {
@@ -45,11 +43,11 @@ public class AACMappings
           topLevel.addItem(imageLoc, text);
           arr.set(imageLoc, new AACCategory(text));
            current = arr.get(imageLoc); 
-        } 
+        } // if
         else {
           current.addItem(imageLoc.substring(1), text);
-        } 
-			} 
+        } // else
+			} // while
 
       // Reset & close
       current = topLevel;
@@ -63,9 +61,10 @@ public class AACMappings
   /* Determines the associated text */
   public String getText(String imageLoc) {
     try {
-      return this.current.getText(imageLoc);
+      current = arr.get(imageLoc);
+      return topLevel.getText(imageLoc);
     } catch (Exception e) {
-      return "";
+      return "Error: Can't get category";
     }
   } // getText(String)
 
@@ -119,7 +118,13 @@ public class AACMappings
 
   /* Adds the mapping to the current category */
   public void add (String imageLoc, String text) {
-    current.addItem(imageLoc, text);
+    if (this.current.name.equals("")) {
+      this.topLevel.addItem(imageLoc, text);
+      this.arr.set(imageLoc, new AACCategory(text));
+    } // if
+    else {
+      current.addItem(imageLoc, text);
+    } // else
   } // add(String)
   
 } // class AACMappings

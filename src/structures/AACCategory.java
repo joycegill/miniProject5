@@ -51,16 +51,15 @@ public class AACCategory
 
   /* Method that returns an array of all the images in the category */
   public String[] getImages() throws Exception {
-    if(this.arr.keys() == null){
+    if(this.arr.getKeys() == null){
       return new String[] {""};
-    }
-
+    } // if
     try {
       // Get keys from this category
-      return this.arr.keys();
+      return this.arr.getKeys();
     } catch (Exception e) {
-      return new String[] {"Error"};
-    }
+      return new String[] {"Error getting keys"};
+    } // try/catch
   } // getImages()
 
 } // class AACCategory

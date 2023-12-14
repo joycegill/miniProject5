@@ -84,9 +84,8 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
    * Remove the key/value pair associated with a key.  Future calls
    * to get(key) will throw an exception.  If the key does not appear
    * in the associative array, does nothing.
-   * @throws KeyNotFoundException
    */
-  public void remove(K key) throws KeyNotFoundException {
+  public void remove(K key) {
     pen.println(name + ".remove(" + key + ")");
     super.remove(key);
     pen.println("  " + name + ": " + this.toString());
